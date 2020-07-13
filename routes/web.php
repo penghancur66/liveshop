@@ -13,12 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::livewire('/', 'shop.index')->name('shop.index');
+Route::livewire('/cart', 'shop.cart')->name('shop.cart');
+Route::livewire('/checkout', 'shop.checkout')->name('shop.checkout');
+
 Route::livewire('/admin/product', 'product.index')->name('admin.product')->middleware('auth');
+
